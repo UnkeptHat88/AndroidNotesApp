@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -36,11 +38,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_11)
     }
 }
 
@@ -75,4 +81,27 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.androidx.compose.material.icons.extended)
+
+    // Local unit tests
+    testImplementation (libs.androidx.core)
+    testImplementation (libs.junit)
+    testImplementation (libs.androidx.core.testing)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.truth)
+    testImplementation (libs.mockwebserver)
+    testImplementation (libs.mockk)
+    debugImplementation (libs.androidx.ui.test.manifest)
+
+    // Instrumentation tests
+    androidTestImplementation (libs.hilt.android.testing)
+    kspAndroidTest (libs.hilt.android.compiler)
+    androidTestImplementation (libs.junit)
+    androidTestImplementation (libs.kotlinx.coroutines.test)
+    androidTestImplementation (libs.androidx.core.testing.v210)
+    androidTestImplementation (libs.truth)
+    androidTestImplementation (libs.androidx.junit)
+    androidTestImplementation (libs.core.ktx)
+    androidTestImplementation (libs.mockwebserver)
+    androidTestImplementation (libs.mockk.android)
+    androidTestImplementation (libs.androidx.runner)
 }
