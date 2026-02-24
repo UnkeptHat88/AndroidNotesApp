@@ -64,7 +64,7 @@ fun OrderSection(
             DefaultRadioButton(
                 text = "Descending",
                 checked = noteOrderBy.sortBy is NoteSortBy.Descending,
-                onChecked = { onOrderChange(noteOrderBy.copy(NoteSortBy.Ascending)) }
+                onChecked = { onOrderChange(noteOrderBy.copy(NoteSortBy.Descending)) }
             )
         }
     }

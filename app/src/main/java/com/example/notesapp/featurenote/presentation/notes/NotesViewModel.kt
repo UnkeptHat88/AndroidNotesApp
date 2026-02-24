@@ -42,13 +42,14 @@ class NotesViewModel @Inject constructor(
 
             is NotesEvent.Order -> {
                 if (_state.value.noteOrder::class == notesEvent.noteOrderBy::class
-                    && _state.value.noteOrder.sortBy == notesEvent.noteOrderBy.sortBy
-                )
+                    && _state.value.noteOrder.sortBy == notesEvent.noteOrderBy.sortBy)
                     return
 
                 _state.value = _state.value.copy(
                     noteOrder = notesEvent.noteOrderBy
                 )
+
+                getNotes(state.value.noteOrder)
             }
 
             NotesEvent.RestoreNote -> {
