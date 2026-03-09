@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.notesapp.core.util.TestTags
 import com.example.notesapp.featurenote.domain.model.Note
 import com.example.notesapp.featurenote.presentation.add_edit_note.components.TransparentHintTextField
 import kotlinx.coroutines.flow.collectLatest
@@ -147,6 +148,7 @@ fun AddEditNoteScreen(
                 onValueChange = {
                     addEditViewmodel.onEvent(AddEditNoteEvent.EnteredTitle(it))
                 },
+                testTag = TestTags.ADD_NOTE_TITLE_FIELD,
                 onFocusChange = {
                     addEditViewmodel.onEvent(AddEditNoteEvent.ChangeTitleFocus(it))
                 }
@@ -164,6 +166,7 @@ fun AddEditNoteScreen(
                 onValueChange = {
                     addEditViewmodel.onEvent(AddEditNoteEvent.EnteredContent(it))
                 },
+                testTag = TestTags.ADD_NOTE_CONTENT_FIELD,
                 onFocusChange = {
                     addEditViewmodel.onEvent(AddEditNoteEvent.ChangeContentFocus(it))
                 }

@@ -22,7 +22,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.notesapp.HiltTestRunner"
     }
 
     buildTypes {
@@ -59,8 +59,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
@@ -97,7 +95,7 @@ dependencies {
     kspAndroidTest (libs.hilt.android.compiler)
     androidTestImplementation (libs.junit)
     androidTestImplementation (libs.kotlinx.coroutines.test)
-    androidTestImplementation (libs.androidx.core.testing.v210)
+    androidTestImplementation (libs.androidx.core.testing)
     androidTestImplementation (libs.truth)
     androidTestImplementation (libs.androidx.junit)
     androidTestImplementation (libs.core.ktx)
